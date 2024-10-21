@@ -19,6 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'sexe',
+        'role_id',
         'email',
         'password',
     ];
@@ -32,6 +34,30 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'assigned_to');
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'uploaded_by');
+    }
+
+    public function assignments()
+    {
+        return $this->hasMany(TaskAssignment::class);
+    }
+
+    public function sessions()
+    {
+        return $this->hasMany(Session::class);
+    }
 
     /**
      * Get the attributes that should be cast.
