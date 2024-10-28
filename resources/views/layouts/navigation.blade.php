@@ -3,7 +3,7 @@
 <nav class="border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="{{route('dashboard')}}" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="{{asset('img/Cabinet.png')}}" class=" h-16" alt="Flowbite Logo" />
+          <img src="{{asset('img/Cabinet.png')}}" class="h-16" alt="Flowbite Logo" />
           <span class="self-center text-center text-2xl font-semibold whitespace-nowrap dark:text-white">N.I.C & Associés</span>
       </a>
       <button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
@@ -56,6 +56,16 @@
                     Administration
                 </span>
             </a>
+            <form method="POST" action="{{ route('logout') }}" class="flex items-center py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">
+              @csrf
+              <button type="submit" onclick="event.preventDefault(); this.closest('form').submit();"class="flex items-center text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">                    
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 17l5-5-5-5" /><path d="M21 12H9" /><path d="M9 21V3" /></svg>
+                  <span>
+                    Logout
+                  </span>
+                </button>
+            </form>
           </li>
         </ul>
       </div>
